@@ -36,6 +36,7 @@ public class SparkConnectionManager implements ConnectionManager {
     SparkSession.Builder builder = SparkSession.builder().master(url);
     this.config.forEach(builder::config);
     SparkSession sparkSession = builder.getOrCreate();
+    // TODO: Make phase+session the app name
     // TODO: Make this configurable
     sparkSession.sparkContext().setLogLevel("WARN");
     return new SparkConnection(sparkSession);
