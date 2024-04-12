@@ -43,6 +43,7 @@ public class SparkConnection implements Connection {
 
   @Override
   public void close() {
-    session.close();
+    // Must not close the session, as it also stops the underlying shared SparkContext
+    // session.close();
   }
 }
